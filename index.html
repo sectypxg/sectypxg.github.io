@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>sectg | タイピングチーム</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #0d1020;
+      color: #f4f6ff;
+      line-height: 1.8;
+    }
+    header {
+      padding: 18px 7%;
+      background: #171b31;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 28px; font-weight: bold; color: #67e8f9; }
+    nav a { color: #dce3ff; margin: 0 8px; text-decoration: none; }
+    .hero {
+      text-align: center;
+      padding: 85px 20px;
+      background: linear-gradient(135deg, #151b35, #282044);
+    }
+    .hero h1 { font-size: clamp(54px, 12vw, 100px); margin: 10px; }
+    .hero h1 span { color: #67e8f9; }
+    .hero p { color: #c4cbe5; font-size: 18px; }
+    .button {
+      display: inline-block;
+      margin: 12px 5px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #67e8f9;
+      color: #101326;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section { padding: 45px 7%; }
+    .label { color: #67e8f9; letter-spacing: 3px; font-size: 13px; }
+    h2 { font-size: 30px; margin-top: 5px; }
+    .description { color: #c4cbe5; max-width: 750px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+    .card {
+      background: #1b2039;
+      border: 1px solid #343b5c;
+      border-radius: 16px;
+      padding: 22px;
+    }
+    .card h3 { margin-bottom: 8px; }
+    .card p { color: #c4cbe5; }
+    .goal {
+      background: #171b31;
+      border-left: 4px solid #67e8f9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .goal strong { color: #67e8f9; }
+    .join {
+      text-align: center;
+      background: #1b2039;
+      border-radius: 18px;
+      padding: 30px 18px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #aeb7d5;
+      border-top: 1px solid #343b5c;
+    }
+    @media (max-width: 600px) {
+      header { gap: 10px; }
+      nav a { display: inline-block; margin: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">sectg</div>
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#goals">GOALS</a>
+      <a href="#members">MEMBERS</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p>TYPING TEAM</p>
+    <h1><span>sec</span>tg</h1>
+    <p>速さも、正確さも、楽しさも。<br>
+    仲間と一緒にタイピングを磨いて、全力で楽しもう。</p>
+    <a class="button" href="#about">チームについて</a>
+    <a class="button" href="#members">メンバー紹介</a>
+  </div>
+
+  <section id="about">
+    <div class="label">01 / ABOUT US</div>
+    <h2>タイピングを、もっと楽しく。</h2>
+    <p class="description">
+      sectgは、タイピングの向上と、みんなで全力で楽しむことを目標に活動するチームです。
+      仲間と切磋琢磨しながら成長し、練習も勝負も思いっきり楽しもう！
+    </p>
+    <div class="grid">
+      <div class="card">
+        <h3>⌨️ スキルアップ</h3>
+        <p>練習を重ねて、タイピングの速度と正確さを高めよう。</p>
+      </div>
+      <div class="card">
+        <h3>🤝 仲間と成長</h3>
+        <p>お互いに学び合い、チームみんなでレベルアップ！</p>
+      </div>
+      <div class="card">
+        <h3>🔥 全力で楽しむ</h3>
+        <p>勝負も練習も本気で。楽しむ気持ちを忘れずに！</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="goals">
+    <div class="label">02 / OUR GOALS</div>
+    <h2>sectgが目指すこと</h2>
+    <div class="goal">
+      <p><strong>目標 1：</strong> メンバー全員のタイピングスキルを向上させる。</p>
+      <p><strong>目標 2：</strong> みんなで全力で楽しむ。</p>
+      <p><strong>目標 3：</strong> 挑戦を続けて、昨日の自分を超えていく。</p>
+    </div>
+  </section>
+
+  <section id="members">
+    <div class="label">03 / MEMBERS</div>
+    <h2>チームメンバー</h2>
+    <p class="description">メンバーの名前やひとことを紹介するページだよ。</p>
+    <div class="grid">
+      <div class="card">
+        <h3>メンバー 01</h3>
+        <p>ひとこと：タイピング上達を目指して練習中！</p>
+        <p>得意なこと：あとで追加</p>
+      </div>
+      <div class="card">
+        <h3>メンバー 02</h3>
+        <p>ひとこと：みんなと楽しく成長したい！</p>
+        <p>得意なこと：あとで追加</p>
+      </div>
+      <div class="card">
+        <h3>メンバー 03</h3>
+        <p>ひとこと：自己ベスト更新に挑戦！</p>
+        <p>得意なこと：あとで追加</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="join">
+      <div class="label">LET'S TYPE</div>
+      <h2>一緒に、もっと上へ。</h2>
+      <p>練習も挑戦も楽しみながら、sectgらしく成長していこう。</p>
+    </div>
+  </section>
+
+  <footer>© sectg | Type together. Grow together. Have fun.</footer>
+</body>
+</html>
