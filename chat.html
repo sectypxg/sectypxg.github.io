@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sectg Chat</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #313338;
+  color: #f2f3f5;
+}
+header {
+  padding: 18px;
+  background: #2b2d31;
+  font-size: 22px;
+  font-weight: bold;
+}
+#layout { display: flex; min-height: 90vh; }
+aside {
+  width: 160px;
+  padding: 12px;
+  background: #232428;
+}
+aside div { padding: 10px 4px; color: #c9cbd1; }
+main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+#messages { flex: 1; padding: 16px; }
+.msg { margin: 12px 0; overflow-wrap: anywhere; }
+.name { color: #c5b5ff; font-weight: bold; }
+#login, #composer { display: flex; gap: 8px; padding: 14px; }
+input, button {
+  padding: 12px; border: 0; border-radius: 6px; font-size: 15px;
+}
+input { flex: 1; min-width: 0; background: #383a40; color: white; }
+button { background: #5865f2; color: white; cursor: pointer; }
+#status { padding: 0 14px; color: #b5bac1; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>💬 Sectg Chat</header>
+<div id="layout">
+  <aside>
+    <div><b>チャンネル</b></div>
+    <div>＃ 雑談</div>
+    <div>＃ タイピング募集</div>
+    <div>＃ お知らせ</div>
+  </aside>
+  <main>
+    <div id="login">
+      <input id="nickname" maxlength="20" placeholder="ニックネーム">
+      <button id="join">参加</button>
+    </div>
+    <div id="status">ニックネームを入力して参加してね。</div>
+    <div id="messages"></div>
+    <form id="composer">
+      <input id="message" maxlength="300" placeholder="メッセージを入力..." disabled>
+      <button id="send" disabled>送信</button>
+    </form>
+  </main>
+</div>
+<script>
+const nickname = document.getElementById("nickname");
+const join = document.getElementById("join");
+const message = document.getElementById("message");
+const send = document.getElementById("send");
+const status = document.getElementById("status");
+const messages = document.getElementById("messages");
+const composer = document.getElementById("composer");
+
+join.addEventListener("click", () => {
+  if (!nickname.value.trim()) {
+    status.textContent = "ニックネームを入力してね。";
+    return;
+  }
+  nickname.disabled = true;
+  join.disabled = true;
+  message.disabled = false;
+  send.disabled = false;
+  status.textContent = "参加中：" + nickname.value.trim();
+});
+
+composer.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const text = message.value.trim();
+  if (!text) return;
+
+  const row = document.createElement("div");
+  row.className = "msg";
+  const name = document.createElement("div");
+  name.className = "name";
+  name.textContent = nickname.value.trim();
+  const content = document.createElement("div");
+  content.textContent = text;
+  row.append(name, content);
+  messages.append(row);
+  message.value = "";
+  messages.scrollTop = messages.scrollHeight;
+});
+</script>
+</body>
+</html>
