@@ -176,12 +176,10 @@
 
         status.textContent = "ニックネームを入力して参加してね";
         login.style.display = "flex";
-      } catch (error) {
-        console.error(error);
-        status.textContent =
-          "接続できません。Firebaseの設定とデータベースのルールを確認してね。";
-      }
-    }
+    } catch (error) {
+  console.error(error);
+  status.textContent = "Firebaseエラー: " + error.code + " — " + error.message;
+}
 
     joinButton.addEventListener("click", () => {
       const value = nicknameInput.value.trim();
