@@ -169,16 +169,18 @@
       messages.scrollTop = messages.scrollHeight;
     }
 
-    async function start() {
-      try {
-        status.textContent = "認証中...";
-        await signInAnonymously(auth);
+  async function start() {
+  try {
+    status.textContent = "認証中...";
+    await signInAnonymously(auth);
 
-        status.textContent = "ニックネームを入力して参加してね";
-        login.style.display = "flex";
-    } catch (error) {
-  console.error(error);
-  status.textContent = "Firebaseエラー: " + error.code + " — " + error.message;
+    status.textContent = "ニックネームを入力して参加してね";
+    login.style.display = "flex";
+  } catch (error) {
+    console.error(error);
+    status.textContent =
+      "Firebaseエラー: " + error.code + " — " + error.message;
+  }
 }
 
     joinButton.addEventListener("click", () => {
