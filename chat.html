@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -74,8 +73,7 @@
       cursor: pointer;
     }
     button:disabled { opacity: .5; }
-    #login { display: none; }
-    #composer { display: none; }
+    #login, #composer { display: none; }
   </style>
 </head>
 <body>
@@ -110,9 +108,8 @@
     } from
       "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
-    // FirebaseのConfigの値に置き換えてね
     const firebaseConfig = {
-      apiKey: "AIzaSyAr0BZOVQkF9bC7k6tTnTIAHKiJfkUMQK4",
+      apiKey: "AIzaSyAr0BZOVQkF9bC7k6tTnTIAHKiJfkUMQ4",
       authDomain: "sectg-caht.firebaseapp.com",
       databaseURL: "https://sectg-caht-default-rtdb.asia-southeast1.firebasedatabase.app",
       projectId: "sectg-caht-web",
@@ -132,7 +129,11 @@
     const joinButton = document.getElementById("join");
     const sendButton = document.getElementById("send");
 
+    const NICKNAME_KEY = "sectgNickname";
     let nickname = "";
+
+    // 前回使ったニックネームを入力欄に戻す
+    nicknameInput.value = localStorage.getItem(NICKNAME_KEY) || "";
 
     function showMessages(snapshot) {
       messages.replaceChildren();
@@ -152,7 +153,8 @@
         time.className = "time";
         time.textContent = item.createdAt
           ? new Date(item.createdAt).toLocaleTimeString("ja-JP", {
-              hour: "2-digit", minute: "2-digit"
+              hour: "2-digit",
+              minute: "2-digit"
             })
           : "";
 
@@ -190,6 +192,8 @@
       }
 
       nickname = value;
+      localStorage.setItem(NICKNAME_KEY, nickname);
+
       login.style.display = "none";
       composer.style.display = "flex";
       status.textContent = "参加中：" + nickname;
